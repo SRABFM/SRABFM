@@ -1,0 +1,132 @@
+from colorama import *
+
+try:
+    import requests
+except:
+    print('[-] pip install requests')
+b = Fore.BLUE
+g = Fore.GREEN
+r = Fore.RED
+
+try:
+    os.system('color')
+except:
+    pass
+print('''                       
+===========================================================
+  ______ ______  _______ ______ _     _ _ ______  
+ / _____|_____ \(_______|____  (_)   (_) (_____ \ 
+( (____  _____) )_______ ____)  )     _| |_____) )
+ \____ \|  __  /|  ___  |  __  ( |   | | |  ____/ 
+ _____) ) |  \ \| |   | | |__)  ) \ / /| | |      
+(______/|_|   |_|_|   |_|______/ \___/ |_|_|      
+                                                                           
+ INSTA : @W1C1C
+ CODE  : @QCLQC       
+ TELG  : @SRABTOOlS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+''')
+
+print(g+'[+] Checker Email - username list - 1')
+print(g+'[+] Checker Email - Suggestions - 2')
+a5tar = input(g+'[+] Enter Number => : ')
+
+print(f'''========================================''')
+
+
+id =input(g+'[+]Enter your id :')
+token =input(g+'[+] Enter token your bot :')
+
+
+if a5tar == '1':
+    def check_emails_file():
+        try:
+            a = 0
+            q = 0
+            namefile = input('[+] Enter Name File [ txt ] : ')
+            openfile = open(namefile).read().splitlines()
+            for file in openfile:
+                url_check_in_file = 'https://www.instagram.com/accounts/web_create_ajax/attempt/'
+                headers_check_in_file = {
+                'accept': '*/*',
+                'accept-encoding': 'gzip, deflate, br',
+                'accept-language': 'en-US,en;q=0.9',
+                'content-length': '73',
+                'content-type': 'application/x-www-form-urlencoded',
+                'cookie': 'ig_did=E1069C00-B44A-4C3C-AEC6-2EDFF828476E; csrftoken=P5sthEF9HF67DQDTu6t2pE2w0YgBB29l; mid=YFNJ-gALAAFOnl3VaylOWdyOj2VX; ig_nrcb=1',
+                'origin': 'https://www.instagram.com',
+                'referer': 'https://www.instagram.com/accounts/emailsignup/',
+                'sec-ch-ua': '"Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"',
+                'sec-ch-ua-mobile': '?0',
+                'sec-fetch-dest': 'empty',
+                'sec-fetch-mode': 'cors',
+                'sec-fetch-site': 'same-origin',
+                'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36',
+                'x-csrftoken': 'P5sthEF9HF67DQDTu6t2pE2w0YgBB29l',
+                'x-ig-app-id': '936619743392459',
+                'x-ig-www-claim': '0',
+                'x-instagram-ajax': 'b3c72bbefcea',
+                'x-requested-with': 'XMLHttpRequest'
+                }
+                data_check_in_file = {
+                    'email': file,
+                    'username': '',
+                    'first_name': '',
+                    'opt_into_one_tap': 'false'
+                    }
+                
+                
+                
+                
+                req = requests.post(url_check_in_file, data=data_check_in_file, headers=headers_check_in_file).text
+                if '"code": "email_is_taken"' in req:
+                	a +=1
+                	tl=(f'https://api.telegram.org/bot{token}/sendMessage?chat_id={id}&text= AVAILABLE ACCOUNT      .        {file}\n━━━━━━━━━━━━━\n• Tele : @SRABTOOlS ؟ ')
+                	req =requests.post(tl)
+                	print(g+f'[{a}] amil insta : {file} ')
+                	with open('anstamail.txt' , 'a') as x:
+                		x.write(file+ ' \n')
+                else:
+                    q +=1
+                    print(b+f'[{q}]eamil not insta : {file}  ')
+        except:
+            print(f'[-] Not Found File By Name : {namfile}')
+    check_emails_file()
+if a5tar == '2':
+    def check_email_Suggestions():
+        nameemail = input('[+] Enter Name Email : ')
+        url_check_email_Suggestions = 'https://www.instagram.com/accounts/web_create_ajax/attempt/'
+        headers_check_email_Suggestions = {
+            'accept': '*/*',
+            'accept-encoding': 'gzip, deflate, br',
+            'accept-language': 'en-US,en;q=0.9',
+            'content-length': '73',
+            'content-type': 'application/x-www-form-urlencoded',
+            'cookie': 'ig_did=E1069C00-B44A-4C3C-AEC6-2EDFF828476E; csrftoken=P5sthEF9HF67DQDTu6t2pE2w0YgBB29l; mid=YFNJ-gALAAFOnl3VaylOWdyOj2VX; ig_nrcb=1',
+            'origin': 'https://www.instagram.com',
+            'referer': 'https://www.instagram.com/accounts/emailsignup/',
+            'sec-ch-ua': '"Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36',
+            'x-csrftoken': 'P5sthEF9HF67DQDTu6t2pE2w0YgBB29l',
+            'x-ig-app-id': '936619743392459',
+            'x-ig-www-claim': '0',
+            'x-instagram-ajax': 'b3c72bbefcea',
+            'x-requested-with': 'XMLHttpRequest'
+            }
+        data_check_check_email_Suggestions = {
+            'email': nameemail,
+            'username': '',
+            'first_name': '',
+            'opt_into_one_tap': 'false'
+            }
+        req_check_email_Suggestions = requests.post(url_check_email_Suggestions, data=data_check_check_email_Suggestions, headers=headers_check_email_Suggestions).text
+        if '"code": "email_is_taken"' in req_check_email_Suggestions:
+            print(f'[-] Email Taken : {nameemail}')
+        else:
+            print(f'[+] Email Available : {nameemail}')
+    check_email_Suggestions()
+            
